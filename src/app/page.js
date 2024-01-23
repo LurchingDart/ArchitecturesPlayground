@@ -1,8 +1,8 @@
-
+'use client'
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 export default function Home() {
-  return (
-      <div >
-          <h1 className="text-4xl font-bold">Welcome to the Architectures Playground</h1>
-      </div>
-  );
+
+    return (
+        <h1>hello world</h1>
+    );
 }
