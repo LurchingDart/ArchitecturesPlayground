@@ -1,12 +1,8 @@
-import Image from "next/image";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
       <div >
-          <ThemeSwitcher />
+          <h1 className="text-4xl font-bold">Welcome to the Architectures Playground</h1>
       </div>
-    </main>
   );
 }
