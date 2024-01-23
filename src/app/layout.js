@@ -14,11 +14,11 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <head/>
-            <body className={inter.className}>
+            <body className={`${inter.className} min-h-screen`}>
             <Providers>
-                <div className="flex flex-col h-screen ">
+                <div className="flex flex-col h-screen">
                     <NavBar/>
-                    <main className="flex flex-grow justify-center items-center">
+                    <main className="flex justify-center items-center h-full">
                         {children}
                     </main>
                 </div>

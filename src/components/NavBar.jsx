@@ -34,21 +34,21 @@ const NavBar = () => {
     };
 
     return (
-        <Navbar isBordered shouldHideOnScroll onMenuOpenChange={setIsMenuOpen}>
+        <Navbar isBordered isBlurred maxWidth="2xl" onMenuOpenChange={setIsMenuOpen}>
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                    className="sm:hidden"
+                    className="md:hidden"
                 />
                 <NavbarBrand>
                     <Link href="/" color="foreground">
                         <LogoIcon />
                     </Link>
-                    <p className="font-bold text-inherit">Architecture Playground</p>
+                    <p className="font-bold text-inherit">Architectures Playground</p>
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarContent className="hidden md:flex" justify="center">
                 <Dropdown>
                     <NavbarItem>
                         <DropdownTrigger>
@@ -65,7 +65,7 @@ const NavBar = () => {
                     </NavbarItem>
                     <DropdownMenu
                         aria-label="Software Architectures"
-                        className="w-[340px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px] 2xl:w-[800px]"
+                        className="w-[340px] md:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px] 2xl:w-[800px]"
                         itemClasses={{
                             base: "gap-4",
                         }}
@@ -74,7 +74,7 @@ const NavBar = () => {
                         <DropdownItem
                             key="monolithic"
                             description="Single, cohesive structure; all components tightly integrated in a unified application."
-                            startContent={icons.mono}
+                            startContent={<MonolithicIcon/>}
                         >
                             <Link href="/monolithic"  color="foreground">
                                 Monolithic Architecture
@@ -83,7 +83,7 @@ const NavBar = () => {
                         <DropdownItem
                             key="client_server"
                             description="Distributed model; clients request, servers respond, facilitating resource sharing and scalability."
-                            startContent={icons.client}
+                            startContent={<ClientServerIcon/>}
                         >
                             <Link href="/client-server"  color="foreground">
                                 Client-Server Architecture
@@ -92,7 +92,7 @@ const NavBar = () => {
                         <DropdownItem
                             key="micro_services"
                             description="Decentralized, modular components; independent services for flexibility, scalability, and easy maintenance."
-                            startContent={icons.micro}
+                            startContent={<MicroservicesIcon/>}
                         >
                             <Link href="/microservices"  color="foreground">
                                 Microservices Architecture
@@ -101,7 +101,7 @@ const NavBar = () => {
                         <DropdownItem
                             key="layered"
                             description="Hierarchical structure; components organized in layers, promoting abstraction and separation of concerns."
-                            startContent={icons.layered}
+                            startContent={<LayeredIcon/>}
                         >
                             <Link href="/layered"  color="foreground">
                                 Layered Architecture
@@ -111,13 +111,6 @@ const NavBar = () => {
                 </Dropdown>
             </NavbarContent>
             <NavbarContent justify="end">
-                <NavbarItem className="hidden lg:flex">
-                    <Tooltip content="GitHub Repo">
-                        <Link href="https://github.com/LurchingDart/ArchitecturesPlayground" target="_blank" color="secondary">
-                            <GitHubIcon />
-                        </Link>
-                    </Tooltip>
-                </NavbarItem>
                 <NavbarItem>
                     <ThemeSwitcher />
                 </NavbarItem>
@@ -134,6 +127,7 @@ const NavBar = () => {
                             className="w-full"
                             href={item.href}
                             size="lg"
+                            onClick={() => setIsMenuOpen(false)}
                         >
                             {item.label}
                         </Link>

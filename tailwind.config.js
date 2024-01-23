@@ -13,6 +13,17 @@ module.exports = withTV({
   theme: {
     extend: {
     },
+    screens: {
+      'xs': '480px',
+      'xsl': '565px',
+      'sm': '640px',
+      'lsm': '680px',
+      'md': '768px',
+      'lg': '1024px',
+      'xlg': '1200px',
+      'xl': '1500px',
+      '2xl': '1890px',
+    },
   },
   darkMode: "class",
   plugins: [
