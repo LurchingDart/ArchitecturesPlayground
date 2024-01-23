@@ -1,16 +1,11 @@
 import Image from "next/image";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div >
-        <Image
-          className="relative dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-        />
+          <ThemeSwitcher />
       </div>
     </main>
   );
