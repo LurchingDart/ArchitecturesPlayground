@@ -1,7 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import React from 'react';
 
-export default function CodeSquareMonolithic() {
+export default function CodeTriangleAreaMonolithic() {
 
     const Snazzy = {
         'hljs': {
@@ -39,36 +39,36 @@ export default function CodeSquareMonolithic() {
         'hljs-strong': { 'color': '#9aedfe' }
     };
 
-    const codeString = '/*\nCode to get the Area and Perimeter of the Square\nusing the Monolithic Architecture\n*/\n\n' +
-        '   const {isOpen, onOpen, onOpenChange} = useDisclosure();\n' +
-        '   const [sideSquare, setSideSquare] = useState(0);\n' +
-        '   const [modalContent, setModalContent] = useState(\'\');\n' +
+    const codeString = '/*\nCode to get the Area of the Triangle using the Monolithic Architecture\n*/\n\n' +
+        '    const {isOpen, onOpen, onOpenChange} = useDisclosure();\n' +
+        '    const [heightTriangle, setHeightTriangle] = useState(0);\n' +
+        '    const [baseTriangle, setBaseTriangle] = useState(0);\n' +
+        '    const [modalContent, setModalContent] = useState(\'\');\n' +
         '\n' +
-        '   const handleModalContent = (content) => {\n' +
-        '       setModalContent(content);\n' +
+        '    const handleModalContent = (content) => {\n' +
+        '        setModalContent(content);\n' +
         '\n' +
         '    }\n' +
-        '   const handleSideSquare = (number) => {\n' +
-        '       setSideSquare(number.target.value)\n' +
+        '    \n' +
+        '    const handleHeight = (number) => {\n' +
+        '        setHeightTriangle(number.target.value)\n' +
         '    }\n' +
         '\n' +
-        '   function perimeterSquare() {\n' +
-        '       let result = 4 * sideSquare;\n' +
-        '       handleModalContent(`The perimeter of the square is ${result}`);\n' +
-        '       onOpen();\n' +
+        '    const handleBase = (number) => {\n' +
+        '        setBaseTriangle(number.target.value)\n' +
         '    }\n' +
         '\n' +
-        '   function areaSquare() {\n' +
-        '       let result = sideSquare * sideSquare;\n' +
-        '       handleModalContent(`The area of the square is ${result}`);\n' +
-        '       onOpen();\n' +
-        '    }';
+        '    function areaTriangle() {\n' +
+        '        let result = (baseTriangle * heightTriangle) / 2;\n' +
+        '        handleModalContent(`The area of the triangle is ${result}`);\n' +
+        '        onOpen();\n' +
+        '    }\n';
 
     return (
         <SyntaxHighlighter
             language="javascript"
             style={Snazzy}
-            className="rounded-2xl p-8"
+            className="rounded-2xl p-2"
         >
             {codeString}
         </SyntaxHighlighter>

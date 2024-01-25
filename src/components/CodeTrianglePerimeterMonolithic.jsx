@@ -1,7 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import React from 'react';
 
-export default function CodeSquareMonolithic() {
+export default function CodeTrianglePerimeterMonolithic() {
 
     const Snazzy = {
         'hljs': {
@@ -39,36 +39,40 @@ export default function CodeSquareMonolithic() {
         'hljs-strong': { 'color': '#9aedfe' }
     };
 
-    const codeString = '/*\nCode to get the Area and Perimeter of the Square\nusing the Monolithic Architecture\n*/\n\n' +
-        '   const {isOpen, onOpen, onOpenChange} = useDisclosure();\n' +
-        '   const [sideSquare, setSideSquare] = useState(0);\n' +
-        '   const [modalContent, setModalContent] = useState(\'\');\n' +
+    const codeString = '/* Code to get the Perimeter of the Triangle using the Monolithic Architecture */\n\n' +
+        '    const {isOpen, onOpen, onOpenChange} = useDisclosure();\n' +
+        '    const [sideTriangle1, setSideTriangle1] = useState(0);\n' +
+        '    const [sideTriangle2, setSideTriangle2] = useState(0);\n' +
+        '    const [sideTriangle3, setSideTriangle3] = useState(0);\n' +
+        '    const [modalContent, setModalContent] = useState(\'\');\n' +
         '\n' +
-        '   const handleModalContent = (content) => {\n' +
-        '       setModalContent(content);\n' +
-        '\n' +
+        '    const handleModalContent = (content) => {\n' +
+        '        setModalContent(content);\n' +
         '    }\n' +
-        '   const handleSideSquare = (number) => {\n' +
-        '       setSideSquare(number.target.value)\n' +
-        '    }\n' +
-        '\n' +
-        '   function perimeterSquare() {\n' +
-        '       let result = 4 * sideSquare;\n' +
-        '       handleModalContent(`The perimeter of the square is ${result}`);\n' +
-        '       onOpen();\n' +
+        '    const handleSide1 = (number) => {\n' +
+        '        setSideTriangle1(number.target.value)\n' +
         '    }\n' +
         '\n' +
-        '   function areaSquare() {\n' +
-        '       let result = sideSquare * sideSquare;\n' +
-        '       handleModalContent(`The area of the square is ${result}`);\n' +
-        '       onOpen();\n' +
-        '    }';
+        '    const handleSide2 = (number) => {\n' +
+        '        setSideTriangle2(number.target.value)\n' +
+        '    }\n' +
+        '\n' +
+        '    const handleSide3 = (number) => {\n' +
+        '        setSideTriangle3(number.target.value)\n' +
+        '    }\n' +
+        '    \n' +
+        '    function perimeterTriangle() {\n' +
+        '        let result = parseInt(sideTriangle1) + parseInt(sideTriangle2) + parseInt(sideTriangle3);\n' +
+        '        handleModalContent(`The perimeter of the triangle is ${result}`);\n' +
+        '        onOpen();\n' +
+        '    }\n';
 
     return (
         <SyntaxHighlighter
             language="javascript"
             style={Snazzy}
-            className="rounded-2xl p-8"
+            className="rounded-2xl p-2"
+            wrapLongLines={true}
         >
             {codeString}
         </SyntaxHighlighter>

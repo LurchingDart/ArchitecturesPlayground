@@ -1,13 +1,12 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import React from 'react';
 
-export default function CodeSquareMonolithic() {
+export default function CodeCircleMonolithic() {
 
     const Snazzy = {
         'hljs': {
             'backgroundColor': '#282a36',
             'color': '#eff0eb',
-            // Agrega más estilos según sea necesario
         },
         'hljs-comment': { 'color': '#686868' },
         'hljs-quote': { 'color': '#686868' },
@@ -39,30 +38,30 @@ export default function CodeSquareMonolithic() {
         'hljs-strong': { 'color': '#9aedfe' }
     };
 
-    const codeString = '/*\nCode to get the Area and Perimeter of the Square\nusing the Monolithic Architecture\n*/\n\n' +
-        '   const {isOpen, onOpen, onOpenChange} = useDisclosure();\n' +
-        '   const [sideSquare, setSideSquare] = useState(0);\n' +
-        '   const [modalContent, setModalContent] = useState(\'\');\n' +
+    const codeString = '/*\nCode to get the Area and Perimeter of the Circle\nusing the Monolithic Architecture\n*/\n\n' +
+        '    const {isOpen, onOpen, onOpenChange} = useDisclosure();\n' +
+        '    const [radius, setRadius] = useState(0);\n' +
+        '    const [modalContent, setModalContent] = useState(\'\');\n' +
         '\n' +
-        '   const handleModalContent = (content) => {\n' +
-        '       setModalContent(content);\n' +
+        '    const handleModalContent = (content) => {\n' +
+        '        setModalContent(content);\n' +
         '\n' +
         '    }\n' +
-        '   const handleSideSquare = (number) => {\n' +
-        '       setSideSquare(number.target.value)\n' +
+        '    const handleRadius = (number) => {\n' +
+        '        setRadius(number.target.value)\n' +
         '    }\n' +
         '\n' +
-        '   function perimeterSquare() {\n' +
-        '       let result = 4 * sideSquare;\n' +
-        '       handleModalContent(`The perimeter of the square is ${result}`);\n' +
-        '       onOpen();\n' +
+        '    function perimeterCircle() {\n' +
+        '        let result = 2 * Math.PI * radius;\n' +
+        '        handleModalContent(`The perimeter of the circle is ${result}`);\n' +
+        '        onOpen();\n' +
         '    }\n' +
         '\n' +
-        '   function areaSquare() {\n' +
-        '       let result = sideSquare * sideSquare;\n' +
-        '       handleModalContent(`The area of the square is ${result}`);\n' +
-        '       onOpen();\n' +
-        '    }';
+        '    function areaCircle() {\n' +
+        '        let result = Math.PI * Math.pow(radius, 2);\n' +
+        '        handleModalContent(`The area of the circle is ${result}`);\n' +
+        '        onOpen();\n' +
+        '    }\n';
 
     return (
         <SyntaxHighlighter
