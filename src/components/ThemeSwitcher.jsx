@@ -20,7 +20,7 @@ export function ThemeSwitcher() {
     return (
         <div>
             <Tooltip placement="bottom" trigger="hover" content={theme === 'dark' ? 'Light Mode' : 'Dark Mode'} color="primary" showArrow={true} shadow="lg" >
-                <Button isIconOnly color="primary" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+                <Button isIconOnly variant="light" color="primary" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
                     {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
                 </Button>
             </Tooltip>
