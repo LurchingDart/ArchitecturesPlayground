@@ -71,6 +71,7 @@ export default function SquareMonolithic() {
                 </div>
                 <div className="flex flex-col items-center gap-3">
                     <p className="font-bold">
+                        {/* eslint-disable-next-line react/no-unescaped-entities */}
                         What's the side of the square?
                     </p>
                     <div>
