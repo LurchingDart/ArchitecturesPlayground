@@ -66,7 +66,7 @@ export default function SquareMonolithic() {
                     <Image
                         width={400}
                         alt="NextUI hero Image"
-                        src="Square.png"
+                        src="https://i.imgur.com/LKTtqQm.png"
                     />
                 </div>
                 <div className="flex flex-col items-center gap-3">
