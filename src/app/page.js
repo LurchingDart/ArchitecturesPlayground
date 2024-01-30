@@ -7,14 +7,14 @@ export default function Home() {
     return (
         <div className="lg:flex-row flex-col flex h-full w-full">
             <div className="flex flex-1 flex-col justify-center gap-7 items-center xl:justify-center xl:gap-14">
-                <div className="text-center xlg:text-left xsl:m-10 lg:ml-10 xl:ml-36">
-                    <h1 className="tracking-tight inline font-semibold text-5xl md:text-6xl xl:text-8xl xlg:text-7xl lg:text-6xl ">Learn some of the&nbsp;</h1>
-                    <h1 className="tracking-tight inline font-semibold text-5xl md:text-6xl xl:text-8xl xlg:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]">Architectures&nbsp;</h1>
+                <div className="text-center m-3 xlg:text-left xsl:m-10 lg:ml-10 xl:ml-36">
+                    <h1 className="tracking-tight inline font-semibold text-4xl md:text-6xl xl:text-8xl xlg:text-7xl lg:text-6xl ">Learn some of the&nbsp;</h1>
+                    <h1 className="tracking-tight inline font-semibold text-4xl md:text-6xl xl:text-8xl xlg:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-[#FF1CF7] to-[#b249f8]">Architectures&nbsp;</h1>
                     <br/>
-                    <h1 className="tracking-tight inline font-semibold text-5xl md:text-6xl xl:text-8xl xlg:text-7xl">
+                    <h1 className="tracking-tight inline font-semibold text-4xl md:text-6xl xl:text-8xl xlg:text-7xl">
                         of Software.
                     </h1>
-                    <h2 className="text-default-500 text-2xl md:text-2xl xl:text-4xl xlg:text-3xl">
+                    <h2 className="text-default-500 md:text-2xl xl:text-4xl xlg:text-3xl">
                         With a simple program to calculate measurements of figures.
                     </h2>
                 </div>
@@ -34,6 +34,7 @@ export default function Home() {
                         color="primary"
                         startContent={<GitHubIcon/>}
                         variant="ghost"
+                        isExternal={true}
                         >
                         GitHub
                     </Button>
