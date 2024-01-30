@@ -2,47 +2,51 @@
 import {
     Image,
     Input,
-    Tabs,
-    Tab,
     Modal,
     ModalContent,
     ModalHeader,
     ModalBody,
     ModalFooter,
     Button,
-    useDisclosure, Code
+    useDisclosure,
 } from "@nextui-org/react";
 
 import {useState} from "react";
 
-export default function SquareMonolithic() {
+export default function CircleClientServer() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    const [sideSquare, setSideSquare] = useState(0);
+    const [radius, setRadius] = useState(0);
     const [modalContent, setModalContent] = useState('');
 
     const handleModalContent = (content) => {
         setModalContent(content);
 
     }
-    const handleSideSquare = (number) => {
-        setSideSquare(number.target.value)
+    const handleRadius = (number) => {
+        setRadius(number.target.value)
     }
 
-    function perimeterSquare() {
-        let result = 4 * sideSquare;
-        handleModalContent(`The perimeter of the square is ${result}`);
+    function perimeterCircle() {
+        let result = 2 * Math.PI * radius;
+        handleModalContent(`The perimeter of the circle is ${result}`);
         onOpen();
     }
 
-    function areaSquare() {
-        let result = sideSquare * sideSquare;
-        handleModalContent(`The area of the square is ${result}`);
+    function areaCircle() {
+        let result = Math.PI * Math.pow(radius, 2);
+        handleModalContent(`The area of the circle is ${result}`);
         onOpen();
     }
 
     return (
         <div className="flex flex-1">
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <Modal
+                isOpen={isOpen}
+                onOpenChange={onOpenChange}
+                size={"xs"}
+                placement={"center"}
+                backdrop={"blur"}
+            >
                 <ModalContent>
                     {(onClose) => (
                         <>
@@ -61,37 +65,44 @@ export default function SquareMonolithic() {
                     )}
                 </ModalContent>
             </Modal>
-            <div className="flex flex-1 flex-col items-center justify-around">
-                <div>
+            <div className="flex flex-1 flex-col items-center gap-6">
+                <div className="md:hidden">
                     <Image
-                        width={400}
-                        alt="NextUI hero Image"
-                        src="https://i.imgur.com/LKTtqQm.png"
+                        width={300}
+                        alt="Circle figure"
+                        src="https://i.imgur.com/0BoSQdL.png"
                     />
                 </div>
-                <div className="flex flex-col items-center gap-3">
+                <div className="hidden md:flex">
+                    <Image
+                        width={350}
+                        alt="Circle figure"
+                        src="https://i.imgur.com/0BoSQdL.png"
+                    />
+                </div>
+                <div className="flex flex-col gap-3">
                     <p className="font-bold">
                         {/* eslint-disable-next-line react/no-unescaped-entities */}
-                        What's the side of the square?
+                        What's the radius of the circle?
                     </p>
                     <div>
                         <Input
                             isClearable
                             type="number"
-                            label="Side"
+                            label="Radius"
                             variant="bordered"
-                            description="Enter the side of the square"
-                            onChange={handleSideSquare}
+                            description="Enter the radius of the circle"
+                            onChange={handleRadius}
                         />
                     </div>
                 </div>
-                <div className="flex flex-col items-center gap-3">
-                    <p className="font-bold">
+                <div className="flex flex-col gap-3">
+                    <p className="font-bold text-center">
                         What you wanna calculate?
                     </p>
-                    <div className=" flex w-full justify-center gap-24">
-                        <Button color="primary" onPress={perimeterSquare}>Perimeter</Button>
-                        <Button color="primary" onPress={areaSquare}>Area</Button>
+                    <div className=" flex gap-24">
+                        <Button color="primary" onPress={perimeterCircle}>Perimeter</Button>
+                        <Button color="primary" onPress={areaCircle}>Area</Button>
                     </div>
                 </div>
             </div>

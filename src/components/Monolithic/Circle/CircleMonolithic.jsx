@@ -40,7 +40,13 @@ export default function CircleMonolithic() {
 
     return (
         <div className="flex flex-1">
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <Modal
+                isOpen={isOpen}
+                onOpenChange={onOpenChange}
+                size={"xs"}
+                placement={"center"}
+                backdrop={"blur"}
+            >
                 <ModalContent>
                     {(onClose) => (
                         <>
@@ -59,15 +65,22 @@ export default function CircleMonolithic() {
                     )}
                 </ModalContent>
             </Modal>
-            <div className="flex flex-1 flex-col items-center justify-around">
-                <div>
+            <div className="flex flex-1 flex-col items-center gap-6">
+                <div className="md:hidden">
                     <Image
-                        width={400}
+                        width={300}
                         alt="Circle figure"
                         src="https://i.imgur.com/0BoSQdL.png"
                     />
                 </div>
-                <div className="flex flex-col items-center gap-3">
+                <div className="hidden md:flex">
+                    <Image
+                        width={350}
+                        alt="Circle figure"
+                        src="https://i.imgur.com/0BoSQdL.png"
+                    />
+                </div>
+                <div className="flex flex-col gap-3">
                     <p className="font-bold">
                         {/* eslint-disable-next-line react/no-unescaped-entities */}
                         What's the radius of the circle?
@@ -83,11 +96,11 @@ export default function CircleMonolithic() {
                         />
                     </div>
                 </div>
-                <div className="flex flex-col items-center gap-3">
-                    <p className="font-bold">
+                <div className="flex flex-col gap-3">
+                    <p className="font-bold text-center">
                         What you wanna calculate?
                     </p>
-                    <div className=" flex w-full justify-center gap-24">
+                    <div className=" flex gap-24">
                         <Button color="primary" onPress={perimeterCircle}>Perimeter</Button>
                         <Button color="primary" onPress={areaCircle}>Area</Button>
                     </div>

@@ -1,13 +1,12 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import React from 'react';
 
-export default function CodeTriangleAreaMonolithic() {
+export default function CircleMonolithicCode() {
 
     const Snazzy = {
         'hljs': {
             'backgroundColor': '#282a36',
             'color': '#eff0eb',
-            // Agrega más estilos según sea necesario
         },
         'hljs-comment': { 'color': '#686868' },
         'hljs-quote': { 'color': '#686868' },
@@ -39,28 +38,28 @@ export default function CodeTriangleAreaMonolithic() {
         'hljs-strong': { 'color': '#9aedfe' }
     };
 
-    const codeString = '/*\nCode to get the Area of the Triangle using the Monolithic Architecture\n*/\n\n' +
+    const codeString = '/* Code to get the Area and Perimeter of the Circle using the Monolithic Architecture */\n\n' +
         '    const {isOpen, onOpen, onOpenChange} = useDisclosure();\n' +
-        '    const [heightTriangle, setHeightTriangle] = useState(0);\n' +
-        '    const [baseTriangle, setBaseTriangle] = useState(0);\n' +
+        '    const [radius, setRadius] = useState(0);\n' +
         '    const [modalContent, setModalContent] = useState(\'\');\n' +
         '\n' +
         '    const handleModalContent = (content) => {\n' +
         '        setModalContent(content);\n' +
         '\n' +
         '    }\n' +
-        '    \n' +
-        '    const handleHeight = (number) => {\n' +
-        '        setHeightTriangle(number.target.value)\n' +
+        '    const handleRadius = (number) => {\n' +
+        '        setRadius(number.target.value)\n' +
         '    }\n' +
         '\n' +
-        '    const handleBase = (number) => {\n' +
-        '        setBaseTriangle(number.target.value)\n' +
+        '    function perimeterCircle() {\n' +
+        '        let result = 2 * Math.PI * radius;\n' +
+        '        handleModalContent(`The perimeter of the circle is ${result}`);\n' +
+        '        onOpen();\n' +
         '    }\n' +
         '\n' +
-        '    function areaTriangle() {\n' +
-        '        let result = (baseTriangle * heightTriangle) / 2;\n' +
-        '        handleModalContent(`The area of the triangle is ${result}`);\n' +
+        '    function areaCircle() {\n' +
+        '        let result = Math.PI * Math.pow(radius, 2);\n' +
+        '        handleModalContent(`The area of the circle is ${result}`);\n' +
         '        onOpen();\n' +
         '    }\n';
 
@@ -68,7 +67,8 @@ export default function CodeTriangleAreaMonolithic() {
         <SyntaxHighlighter
             language="javascript"
             style={Snazzy}
-            className="rounded-2xl p-2"
+            className="rounded-2xl p-3 m-5"
+            wrapLongLines={true}
         >
             {codeString}
         </SyntaxHighlighter>
