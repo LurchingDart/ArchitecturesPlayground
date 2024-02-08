@@ -12,6 +12,7 @@ import {
 } from "@nextui-org/react";
 
 import {useState} from "react";
+import axios from "axios";
 
 export default function CircleClientServer() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -20,22 +21,30 @@ export default function CircleClientServer() {
 
     const handleModalContent = (content) => {
         setModalContent(content);
-
     }
     const handleRadius = (number) => {
         setRadius(number.target.value)
     }
 
-    function perimeterCircle() {
-        let result = 2 * Math.PI * radius;
-        handleModalContent(`The perimeter of the circle is ${result}`);
-        onOpen();
+
+    const perimeterCircle = async () => {
+        try {
+            const response = await axios.get(`https://architectures-clientserver.vercel.app/circle/perimeter/${radius}`);
+            handleModalContent(`The perimeter of the circle is ${response.data.perimeter}`);
+            onOpen();
+        } catch (error) {
+            console.error(error);
+        }
     }
 
-    function areaCircle() {
-        let result = Math.PI * Math.pow(radius, 2);
-        handleModalContent(`The area of the circle is ${result}`);
-        onOpen();
+    const areaCircle = async () => {
+        try {
+            const response = await axios.get(`https://architectures-clientserver.vercel.app/circle/area/${radius}`);
+            handleModalContent(`The area of the circle is ${response.data.area}`);
+            onOpen();
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (

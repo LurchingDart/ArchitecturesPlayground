@@ -7,14 +7,18 @@ import {
 import React, { useState } from 'react';
 
 import SquareClientServer from "@/components/ClientServer/Square/SquareClientServer";
-import SquareMonolithicCode from "@/components/Monolithic/Square/SquareMonolithicCode";
+import SquareClientCode from "@/components/ClientServer/Square/SquareClientCode";
+import SquareServerCode from "@/components/ClientServer/Square/SquareServerCode";
 
 import CircleClientServer from "@/components/ClientServer/Circle/CircleClientServer";
-import CircleMonolithicCode from "@/components/Monolithic/Circle/CircleMonolithicCode";
+import CircleClientCode from "@/components/ClientServer/Circle/CircleClientCode";
+import CircleServerCode from "@/components/ClientServer/Circle/CircleServerCode";
 
 import TriangleClientServer from "@/components/ClientServer/Triangle/TriangleClientServer";
-import TriangleMonolithicAreaCodeDisplay from "@/components/Monolithic/Triangle/TriangleMonolithicAreaCodeDisplay";
-import TriangleMonolithicPerimeterCodeDisplay from "@/components/Monolithic/Triangle/TriangleMonolithicPerimeterCodeDisplay";
+import TriangleClientPerimeterCode from "@/components/ClientServer/Triangle/TriangleClientPerimeterCode";
+import TriangleServerPerimeterCode from "@/components/ClientServer/Triangle/TriangleServerPerimeterCode";
+import TriangleClientAreaCode from "@/components/ClientServer/Triangle/TriangleClientAreaCode";
+import TriangleServerAreaCode from "@/components/ClientServer/Triangle/TriangleServerAreaCode";
 
 export default function ClientServer() {
     const [selectedOption, setSelectedOption] = useState('area');
@@ -31,16 +35,30 @@ export default function ClientServer() {
                         <div className="flex flex-1 m-5">
                             <SquareClientServer/>
                         </div>
-                        <div className="flex flex-1 m-5">
-                            <SquareMonolithicCode/>
+                        <div className="flex flex-1 flex-col items-center">
+                            <Tabs aria-label="Options" color="primary" className="flex flex-col">
+                                <Tab key="client" title="Client" className="flex flex-1">
+                                    <SquareClientCode/>
+                                </Tab>
+                                <Tab key="server" title="Server" className="flex flex-1">
+                                    <SquareServerCode/>
+                                </Tab>
+                            </Tabs>
                         </div>
                     </Tab>
                     <Tab key="circle" title="Circle" className="flex w-full flex-col xlg:flex-row">
                         <div className="flex flex-1 m-5">
                             <CircleClientServer/>
                         </div>
-                        <div className="flex flex-1 m-5">
-                            <CircleMonolithicCode/>
+                        <div className="flex flex-1 flex-col items-center">
+                            <Tabs aria-label="Options" color="primary" className="flex flex-col">
+                                <Tab key="client" title="Client" className="flex flex-1">
+                                    <CircleClientCode/>
+                                </Tab>
+                                <Tab key="server" title="Server" className="flex flex-1">
+                                    <CircleServerCode/>
+                                </Tab>
+                            </Tabs>
                         </div>
                     </Tab>
                     <Tab key="triangle" title="Triangle" className="flex w-full flex-col xlg:flex-row">
@@ -49,9 +67,27 @@ export default function ClientServer() {
                         </div>
                         <div className="flex flex-1 m-5">
                             {selectedOption === 'area' ? (
-                                <TriangleMonolithicAreaCodeDisplay/>
+                                <div className="flex flex-1 flex-col items-center">
+                                    <Tabs aria-label="Options" color="primary" className="flex flex-col">
+                                        <Tab key="client" title="Client" className="flex flex-1">
+                                            <TriangleClientAreaCode/>
+                                        </Tab>
+                                        <Tab key="server" title="Server" className="flex flex-1">
+                                            <TriangleServerAreaCode/>
+                                        </Tab>
+                                    </Tabs>
+                                </div>
                             ) : (
-                                <TriangleMonolithicPerimeterCodeDisplay/>
+                                <div className="flex flex-1 flex-col items-center">
+                                    <Tabs aria-label="Options" color="primary" className="flex flex-col">
+                                        <Tab key="client" title="Client" className="flex flex-1">
+                                            <TriangleClientPerimeterCode/>
+                                        </Tab>
+                                        <Tab key="server" title="Server" className="flex flex-1">
+                                            <TriangleServerPerimeterCode/>
+                                        </Tab>
+                                    </Tabs>
+                                </div>
                             )}
                         </div>
                     </Tab>

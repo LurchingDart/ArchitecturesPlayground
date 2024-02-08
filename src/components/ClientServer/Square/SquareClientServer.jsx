@@ -12,6 +12,7 @@ import {
 } from "@nextui-org/react";
 
 import {useState} from "react";
+import axios from "axios";
 
 export default function SquareClientServer() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -26,16 +27,24 @@ export default function SquareClientServer() {
         setSideSquare(number.target.value)
     }
 
-    function perimeterSquare() {
-        let result = 4 * sideSquare;
-        handleModalContent(`The perimeter of the square is ${result}`);
-        onOpen();
+    const perimeterSquare = async () => {
+        try {
+            const response = await axios.get(`https://architectures-clientserver.vercel.app/square/perimeter/${sideSquare}`);
+            handleModalContent(`The perimeter of the square is ${response.data.perimeter}`);
+            onOpen();
+        } catch (error) {
+            console.error(error);
+        }
     }
 
-    function areaSquare() {
-        let result = sideSquare * sideSquare;
-        handleModalContent(`The area of the square is ${result}`);
-        onOpen();
+    const areaSquare = async () => {
+        try {
+            const response = await axios.get(`https://architectures-clientserver.vercel.app/square/area/${sideSquare}`);
+            handleModalContent(`The area of the square is ${response.data.area}`);
+            onOpen();
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (

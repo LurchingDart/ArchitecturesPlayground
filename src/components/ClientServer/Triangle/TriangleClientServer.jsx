@@ -14,6 +14,7 @@ import {
 } from "@nextui-org/react";
 
 import {useState} from "react";
+import axios from "axios";
 
 export default function TriangleClientServer( { setSelectedOption } ) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -48,16 +49,24 @@ export default function TriangleClientServer( { setSelectedOption } ) {
         setBaseTriangle(number.target.value)
     }
 
-    function perimeterTriangle() {
-        let result = parseInt(sideTriangle1) + parseInt(sideTriangle2) + parseInt(sideTriangle3);
-        handleModalContent(`The perimeter of the triangle is ${result}`);
-        onOpen();
+    const perimeterTriangle = async () => {
+        try {
+            const response = await axios.get(`https://architectures-clientserver.vercel.app/triangle/perimeter/${sideTriangle1}/${sideTriangle2}/${sideTriangle3}`);
+            handleModalContent(`The perimeter of the square is ${response.data.perimeter}`);
+            onOpen();
+        } catch (error) {
+            console.error(error);
+        }
     }
 
-    function areaTriangle() {
-        let result = (baseTriangle * heightTriangle) / 2;
-        handleModalContent(`The area of the triangle is ${result}`);
-        onOpen();
+    const areaTriangle = async () => {
+        try {
+            const response = await axios.get(`https://architectures-clientserver.vercel.app/triangle/area/${baseTriangle}/${heightTriangle}`);
+            handleModalContent(`The perimeter of the square is ${response.data.area}`);
+            onOpen();
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     const handleTabChange = (key) => {
