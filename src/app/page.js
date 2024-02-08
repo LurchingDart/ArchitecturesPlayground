@@ -40,20 +40,42 @@ export default function Home() {
                     </Button>
                 </div>
             </div>
-            <div className=" flex flex-1 ">
-                <div className="md:hidden w-full h-full flex justify-center items-start">
+            <div className=" flex flex-1 items-center justify-center">
+                <div className="flex w-full h-full items-center justify-center xs:hidden">
                     <Image
-                        width={350}
-                        height={350}
+                        width={300}
+                        height={300}
+                        className=""
                         isBlurred
                         src="https://app.requestly.io/delay/500/https://i.imgur.com/I6fMOHs.png"
                         alt="Logo of the project"
                     />
                 </div>
-                <div className="hidden md:flex w-full h-full justify-center items-center">
+                <div className="hidden xs:flex md:hidden w-full h-full items-center justify-center">
+                    <Image
+                        width={350}
+                        height={350}
+                        className=""
+                        isBlurred
+                        src="https://app.requestly.io/delay/500/https://i.imgur.com/I6fMOHs.png"
+                        alt="Logo of the project"
+                    />
+                </div>
+                <div className="hidden md:flex xlg:hidden w-full h-full items-center justify-center">
+                    <Image
+                        width={400}
+                        height={400}
+                        className=""
+                        isBlurred
+                        src="https://app.requestly.io/delay/500/https://i.imgur.com/I6fMOHs.png"
+                        alt="Logo of the project"
+                    />
+                </div>
+                <div className="hidden xlg:flex w-full h-full items-center justify-center">
                     <Image
                         width={512}
                         height={512}
+                        className=""
                         isBlurred
                         src="https://app.requestly.io/delay/500/https://i.imgur.com/I6fMOHs.png"
                         alt="Logo of the project"

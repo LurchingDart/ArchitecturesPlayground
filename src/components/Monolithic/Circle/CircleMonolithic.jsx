@@ -28,13 +28,15 @@ export default function CircleMonolithic() {
 
     function perimeterCircle() {
         let result = 2 * Math.PI * radius;
-        handleModalContent(`The perimeter of the circle is ${result}`);
+        let resultShort = result.toFixed(2);
+        handleModalContent(`The perimeter of the circle is ${resultShort}`);
         onOpen();
     }
 
     function areaCircle() {
         let result = Math.PI * Math.pow(radius, 2);
-        handleModalContent(`The area of the circle is ${result}`);
+        let resultShort = result.toFixed(2);
+        handleModalContent(`The area of the circle is ${resultShort}`);
         onOpen();
     }
 
