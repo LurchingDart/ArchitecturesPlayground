@@ -52,7 +52,7 @@ export default function TriangleClientServer( { setSelectedOption } ) {
     const perimeterTriangle = async () => {
         try {
             const response = await axios.get(`https://architectures-clientserver.vercel.app/triangle/perimeter/${sideTriangle1}/${sideTriangle2}/${sideTriangle3}`);
-            handleModalContent(`The perimeter of the square is ${response.data.perimeter}`);
+            handleModalContent(`The perimeter of the triangle is ${response.data.perimeter}`);
             onOpen();
         } catch (error) {
             console.error(error);
@@ -62,7 +62,7 @@ export default function TriangleClientServer( { setSelectedOption } ) {
     const areaTriangle = async () => {
         try {
             const response = await axios.get(`https://architectures-clientserver.vercel.app/triangle/area/${baseTriangle}/${heightTriangle}`);
-            handleModalContent(`The perimeter of the square is ${response.data.area}`);
+            handleModalContent(`The perimeter of the triangle is ${response.data.area}`);
             onOpen();
         } catch (error) {
             console.error(error);
