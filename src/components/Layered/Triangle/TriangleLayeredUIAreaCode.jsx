@@ -4,7 +4,7 @@ import Snazzy from "@/components/SnazzyTheme";
 
 export default function TriangleLayeredUIAreaCode() {
 
-    const codeString = '/* Code of the UI of the Circle option using the Layered Architecture */\n\n' +
+    const codeString = '/* Code of the UI of the Triangle option using the Layered Architecture */\n\n' +
         'import TriangleLayered from "@/components/Layered/Triangle/TriangleLayered";\n' +
         'import TriangleLayeredUIAreaCode from "@/components/Layered/Triangle/TriangleLayeredUIAreaCode";\n' +
         'import TriangleLayeredLogicAreaCode from "@/components/Layered/Triangle/TriangleLayeredLogicAreaCode";\n\n' +
@@ -52,6 +52,7 @@ export default function TriangleLayeredUIAreaCode() {
         '        </div>\n' +
         '    );\n' +
         '}'
+
     return (
         <SyntaxHighlighter
             language="javascript"
