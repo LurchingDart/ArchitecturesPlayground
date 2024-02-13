@@ -22,7 +22,7 @@ export default function TriangleClientAreaCode() {
         <SyntaxHighlighter
             language="javascript"
             style={Snazzy}
-            className="rounded-2xl p-3 m-2 md:overflow-x-auto"
+            className="rounded-2xl p-3 md:overflow-x-auto"
             wrapLongLines={true}
         >
             {codeString}
