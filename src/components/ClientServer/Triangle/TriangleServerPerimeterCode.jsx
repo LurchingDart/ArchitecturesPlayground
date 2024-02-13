@@ -21,7 +21,7 @@ export default function TriangleServerPerimeterCode() {
         <SyntaxHighlighter
             language="javascript"
             style={Snazzy}
-            className="rounded-2xl p-3 m-5 overflow-x-scroll md:overflow-x-auto xlg:h-96"
+            className="rounded-2xl p-3 m-2 md:overflow-x-auto xlg:h-96"
             wrapLongLines={true}
         >
             {codeString}

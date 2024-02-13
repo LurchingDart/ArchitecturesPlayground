@@ -30,7 +30,7 @@ export default function CircleClientCode() {
         <SyntaxHighlighter
             language="javascript"
             style={Snazzy}
-            className="rounded-2xl p-5 m-5 md:overflow-x-auto"
+            className="rounded-2xl p-5 m-2 md:overflow-x-auto"
             wrapLongLines={true}
         >
             {codeString}

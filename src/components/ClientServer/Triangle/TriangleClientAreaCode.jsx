@@ -7,14 +7,7 @@ export default function TriangleClientAreaCode() {
 
     const codeString = '/* Code to get the Area of the Triangle using the Client Server Architecture */\n\n' +
         'const url = \'https://client-server.api/triangle/\';\n\n' +
-        'const handleHeight = (number) => {\n' +
-        '   setHeightTriangle(number.target.value)\n' +
-        '}\n' +
-        '\n' +
-        'const handleBase = (number) => {\n' +
-        '   setBaseTriangle(number.target.value)\n' +
-        '}' +
-        '\n' +
+
         'const areaTriangle = async () => {\n' +
         '   try {\n' +
         '       const response = await axios.get(`url/${base}/${height}`);\n' +
@@ -29,7 +22,7 @@ export default function TriangleClientAreaCode() {
         <SyntaxHighlighter
             language="javascript"
             style={Snazzy}
-            className="rounded-2xl p-3 m-5 overflow-x-scroll md:overflow-x-auto"
+            className="rounded-2xl p-3 m-2 md:overflow-x-auto"
             wrapLongLines={true}
         >
             {codeString}
