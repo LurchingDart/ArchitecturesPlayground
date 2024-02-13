@@ -5,7 +5,7 @@ import Snazzy from "@/components/SnazzyTheme";
 export default function TriangleServerPerimeterCode() {
 
     const codeString = '/* Code to get the Perimeter of the Triangle using the Client Server Architecture */\n\n' +
-        '   routes.get(\'/perimeter/:side1/:side2/:side3\', (req, res) => {\n' +
+        '   routes.get(\'/perimeter/:sides\', (req, res) => {\n' +
         '       const side1 = req.params.side1;\n' +
         '       const side2 = req.params.side2;\n' +
         '       const side3 = req.params.side3;\n' +
