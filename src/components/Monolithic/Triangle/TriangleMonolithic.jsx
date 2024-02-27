@@ -14,8 +14,6 @@ import {
 } from "@nextui-org/react";
 
 import {useState} from "react";
-import CodeTriangleAreaMonolithic from "@/components/CodeTriangleAreaMonolithic";
-import CodeTrianglePerimeterMonolithic from "@/components/CodeTrianglePerimeterMonolithic";
 
 export default function TriangleMonolithic( { setSelectedOption } ) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -68,7 +66,13 @@ export default function TriangleMonolithic( { setSelectedOption } ) {
 
     return (
         <div className="flex flex-1">
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <Modal
+                isOpen={isOpen}
+                onOpenChange={onOpenChange}
+                size={"xs"}
+                placement={"center"}
+                backdrop={"blur"}
+            >
                 <ModalContent>
                     {(onClose) => (
                         <>
@@ -87,26 +91,33 @@ export default function TriangleMonolithic( { setSelectedOption } ) {
                     )}
                 </ModalContent>
             </Modal>
-            <div className="flex flex-1 flex-col items-center justify-around">
-                <div>
+            <div className="flex flex-1 flex-col items-center gap-6">
+                <div className="xlg:hidden">
                     <Image
-                        width={400}
+                        width={300}
                         alt="Triangle figure"
                         src="https://i.imgur.com/pjjXuHq.png"
                     />
                 </div>
-                <div className="flex flex-col items-center h-full">
-                    <Tabs aria-label="Options" color="primary" onSelectionChange={(key) => handleTabChange(key)} >
+                <div className="hidden mt-5 xlg:flex">
+                    <Image
+                        width={350}
+                        alt="Triangle figure"
+                        src="https://i.imgur.com/pjjXuHq.png"
+                    />
+                </div>
+                <div className="flex flex-col items-center">
+                    <Tabs aria-label="Options" color="primary" onSelectionChange={(key) => handleTabChange(key)}>
                         <Tab
                             key="area"
                             title="Area"
-                            className="flex flex-col items-center justify-evenly w-full h-full"
+                            className="flex flex-col gap-6"
                         >
-                            <p className="font-bold">
+                            <p className="font-bold text-center">
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
                                 What's the base and height of the triangle?
                             </p>
-                            <div className="flex gap-5">
+                            <div className="flex gap-2">
                                 <Input
                                     isClearable
                                     type="number"
@@ -124,20 +135,20 @@ export default function TriangleMonolithic( { setSelectedOption } ) {
                                     onChange={handleBase}
                                 />
                             </div>
-                            <div className=" flex w-full justify-center gap-24">
+                            <div className=" flex justify-center">
                                 <Button color="primary" onPress={areaTriangle}>Calculate</Button>
                             </div>
                         </Tab>
                         <Tab
                             key="perimeter"
                             title="Perimeter"
-                            className="flex flex-col items-center justify-evenly w-full h-full"
+                            className="flex flex-col gap-6"
                         >
-                            <p className="font-bold">
+                            <p className="font-bold text-center">
                                 {/* eslint-disable-next-line react/no-unescaped-entities */}
                                 What are the sides of the triangle?
                             </p>
-                            <div className="flex gap-5">
+                            <div className="flex gap-2">
                                 <Input
                                     isClearable
                                     type="number"
@@ -163,7 +174,7 @@ export default function TriangleMonolithic( { setSelectedOption } ) {
                                     onChange={handleSide3}
                                 />
                             </div>
-                            <div className=" flex w-full justify-center gap-24">
+                            <div className="flex justify-center">
                                 <Button color="primary" onPress={perimeterTriangle}>Calculate</Button>
                             </div>
                         </Tab>

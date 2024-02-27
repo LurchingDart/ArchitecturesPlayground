@@ -6,43 +6,52 @@ import {
 
 import React, { useState } from 'react';
 
-import CodeSquareMonolithic from "@/components/CodeSquareMonolithic";
+import CircleMonolithic from "@/components/Monolithic/Circle/CircleMonolithic";
+import CircleMonolithicCode from "@/components/Monolithic/Circle/CircleMonolithicCode";
 
-import SquareMonolithic from "@/components/SquareMonolithic";
-import CircleMonolithic from "@/components/CircleMonolithic";
-import CodeCircleMonolithic from "@/components/CodeCircleMonolithic";
-import TriangleMonolithic from "@/components/TriangleMonolithic";
-import CodeTriangleAreaMonolithic from "@/components/CodeTriangleAreaMonolithic";
-import CodeTrianglePerimeterMonolithic from "@/components/CodeTrianglePerimeterMonolithic";
+import SquareMonolithic from "@/components/Monolithic/Square/SquareMonolithic";
+import SquareMonolithicCode from "@/components/Monolithic/Square/SquareMonolithicCode";
 
-export default function Home() {
+import TriangleMonolithic from "@/components/Monolithic/Triangle/TriangleMonolithic";
+import TriangleMonolithicAreaCodeDisplay from "@/components/Monolithic/Triangle/TriangleMonolithicAreaCodeDisplay";
+import TriangleMonolithicPerimeterCodeDisplay from "@/components/Monolithic/Triangle/TriangleMonolithicPerimeterCodeDisplay";
+
+export default function Monolithic() {
     const [selectedOption, setSelectedOption] = useState('area');
     return (
         <div className="flex h-full w-full flex-col">
             <div>
-                <h1 className="text-4xl font-bold text-center m-5">Monolithic</h1>
+                <h1 className="text-4xl text-primary text-center m-5 font-semibold">
+                    Monolithic
+                </h1>
             </div>
-            <div className="flex flex-col items-center h-full ">
+            <div className="flex flex-col items-center h-full">
                 <Tabs aria-label="Options" color="primary" className="">
-                    <Tab key="square" title="Square" className="flex w-full h-full">
-                        <SquareMonolithic/>
-                        <div className="flex flex-1 items-center justify-center">
-                            <CodeSquareMonolithic/>
+                    <Tab key="square" title="Square" className="flex w-full flex-col xlg:flex-row">
+                        <div className="flex flex-1 m-5">
+                            <SquareMonolithic/>
+                        </div>
+                        <div className="flex flex-1 m-5">
+                            <SquareMonolithicCode/>
                         </div>
                     </Tab>
-                    <Tab key="circle" title="Circle" className="flex w-full h-full">
-                        <CircleMonolithic/>
-                        <div className="flex flex-1 items-center justify-center">
-                            <CodeCircleMonolithic/>
+                    <Tab key="circle" title="Circle" className="flex w-full flex-col xlg:flex-row">
+                        <div className="flex flex-1 m-5">
+                            <CircleMonolithic/>
+                        </div>
+                        <div className="flex flex-1 m-5">
+                            <CircleMonolithicCode/>
                         </div>
                     </Tab>
-                    <Tab key="triangle" title="Triangle" className="flex w-full h-full">
-                        <TriangleMonolithic setSelectedOption={setSelectedOption}/>
-                        <div className="flex flex-1 flex-col items-center justify-center">
+                    <Tab key="triangle" title="Triangle" className="flex w-full flex-col xlg:flex-row">
+                        <div className="flex flex-1 m-5">
+                            <TriangleMonolithic setSelectedOption={setSelectedOption}/>
+                        </div>
+                        <div className="flex flex-1 m-5">
                             {selectedOption === 'area' ? (
-                                <CodeTriangleAreaMonolithic/>
+                                <TriangleMonolithicAreaCodeDisplay/>
                             ) : (
-                                <CodeTrianglePerimeterMonolithic/>
+                                <TriangleMonolithicPerimeterCodeDisplay/>
                             )}
                         </div>
                     </Tab>

@@ -15,10 +15,9 @@ import {
     DropdownMenu,
     NavbarMenuToggle,
     NavbarMenu,
-    NavbarMenuItem,
-    Tooltip
+    NavbarMenuItem
 } from "@nextui-org/react";
-import {GitHubIcon, LogoIcon, MicroservicesIcon, MonolithicIcon, ClientServerIcon, LayeredIcon, DropDownIcon} from "@/components/Icons";
+import { LogoIcon, MicroservicesIcon, MonolithicIcon, ClientServerIcon, LayeredIcon, DropDownIcon} from "@/components/Icons";
 import { siteConfig } from "@/config/SiteConfig";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 

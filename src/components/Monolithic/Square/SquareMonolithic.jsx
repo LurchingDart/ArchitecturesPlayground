@@ -2,15 +2,13 @@
 import {
     Image,
     Input,
-    Tabs,
-    Tab,
     Modal,
     ModalContent,
     ModalHeader,
     ModalBody,
     ModalFooter,
     Button,
-    useDisclosure, Code
+    useDisclosure,
 } from "@nextui-org/react";
 
 import {useState} from "react";
@@ -42,7 +40,13 @@ export default function SquareMonolithic() {
 
     return (
         <div className="flex flex-1">
-            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <Modal
+                isOpen={isOpen}
+                onOpenChange={onOpenChange}
+                size={"xs"}
+                placement={"center"}
+                backdrop={"blur"}
+            >
                 <ModalContent>
                     {(onClose) => (
                         <>
@@ -61,15 +65,22 @@ export default function SquareMonolithic() {
                     )}
                 </ModalContent>
             </Modal>
-            <div className="flex flex-1 flex-col items-center justify-around">
-                <div>
+            <div className="flex flex-1 flex-col items-center gap-6">
+                <div className="xlg:hidden">
                     <Image
-                        width={400}
-                        alt="NextUI hero Image"
+                        width={300}
+                        alt="Square image"
                         src="https://i.imgur.com/LKTtqQm.png"
                     />
                 </div>
-                <div className="flex flex-col items-center gap-3">
+                <div className="hidden mt-5 xlg:flex">
+                    <Image
+                        width={350}
+                        alt="Square image"
+                        src="https://i.imgur.com/LKTtqQm.png"
+                    />
+                </div>
+                <div className="flex flex-col gap-3">
                     <p className="font-bold">
                         {/* eslint-disable-next-line react/no-unescaped-entities */}
                         What's the side of the square?
@@ -85,11 +96,11 @@ export default function SquareMonolithic() {
                         />
                     </div>
                 </div>
-                <div className="flex flex-col items-center gap-3">
-                    <p className="font-bold">
+                <div className="flex flex-col gap-3">
+                    <p className="font-bold text-center">
                         What you wanna calculate?
                     </p>
-                    <div className=" flex w-full justify-center gap-24">
+                    <div className=" flex gap-24">
                         <Button color="primary" onPress={perimeterSquare}>Perimeter</Button>
                         <Button color="primary" onPress={areaSquare}>Area</Button>
                     </div>

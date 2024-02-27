@@ -14,7 +14,7 @@ module.exports = withTV({
     extend: {
     },
     screens: {
-      'xs': '480px',
+      'xs': '410px',
       'xsl': '565px',
       'sm': '640px',
       'lsm': '680px',
